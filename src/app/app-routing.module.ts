@@ -24,6 +24,14 @@ const routes: Routes = [
       {
         path: '',
         component: ContactListComponent
+      },
+      {
+        path: 'new',
+        component: ContactNewComponent
+      },
+      {
+        path: 'edit',
+        component: ContactEditComponent
       }
     ]
   },
