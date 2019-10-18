@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LayoutComponent } from './layout/layout.component'
+import { LayoutComponent } from './layout/layout.component';
 
-import { ContactListComponent } from './contact-list/contact-list.component'
-import { ContactEditComponent} from './contact-edit/contact-edit.component'
-import { ContactNewComponent } from './contact-new/contact-new.component'
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactEditComponent} from './contact-edit/contact-edit.component';
+import { ContactNewComponent } from './contact-new/contact-new.component';
+
+import { TagEditComponent } from './tag-edit/tag-edit.component';
+// tslint:disable-next-line: import-spacing
+import { TagListComponent } from  './tag-list/tag-list.component';
+import { TagNewComponent } from './tag-new/tag-new.component';
 
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
@@ -32,6 +37,24 @@ const routes: Routes = [
       {
         path: 'edit',
         component: ContactEditComponent
+      }
+    ]
+  },
+  {
+    path: 'tags',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        component: TagListComponent
+      },
+      {
+        path: 'new',
+        component: TagNewComponent
+      },
+      {
+        path: 'edit',
+        component: TagEditComponent
       }
     ]
   },
