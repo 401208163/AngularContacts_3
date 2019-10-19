@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,6 +14,7 @@ import { TagListComponent } from './tag-list/tag-list.component';
 import { TagNewComponent } from './tag-new/tag-new.component';
 import { TagEditComponent } from './tag-edit/tag-edit.component';
 import { LayoutComponent } from './layout/layout.component';
+import { from } from 'rxjs';
 
 @NgModule({
    declarations: [
@@ -32,7 +33,8 @@ import { LayoutComponent } from './layout/layout.component';
    ],
    imports: [
       BrowserModule,
-      AppRoutingModule
+      AppRoutingModule,
+      FormsModule
    ],
    providers: [],
    bootstrap: [
