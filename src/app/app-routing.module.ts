@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './auth-guard.service';
+
 import { LayoutComponent } from './layout/layout.component';
 
 import { ContactListComponent } from './contact-list/contact-list.component';
@@ -25,6 +27,7 @@ const routes: Routes = [
   {
     path: 'contacts',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -43,6 +46,7 @@ const routes: Routes = [
   {
     path: 'tags',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -70,6 +74,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

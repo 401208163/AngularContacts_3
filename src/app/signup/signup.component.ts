@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
     const formData = this.signupForm;
-    this.http.post('http://localhost:3000/users', formData)
+    this.http.post('http://106.15.206.216:3000/users', formData)
       .toPromise()
       .then((data: any) => {
         this.email_err_msg = '';
