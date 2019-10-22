@@ -38,7 +38,7 @@ const routes: Routes = [
         component: ContactNewComponent
       },
       {
-        path: 'edit',
+        path: 'edit/:id', // 动态路径
         component: ContactEditComponent
       }
     ]
@@ -57,7 +57,7 @@ const routes: Routes = [
         component: TagNewComponent
       },
       {
-        path: 'edit',
+        path: 'edit', 
         component: TagEditComponent
       }
     ]
