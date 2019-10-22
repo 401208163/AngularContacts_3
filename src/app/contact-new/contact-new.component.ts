@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-new',
@@ -6,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-new.component.css']
 })
 export class ContactNewComponent implements OnInit {
+  formData = {
+    name: '',
+    email: '',
+    phone: ''
+  };
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  addContact() {
+    this.http.post('http://106.15.206.216:3000/contacts', this.formData)
+    .toPromise()
+    .then(data => {
+      this.router.navigate(['/contacts']);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 }
