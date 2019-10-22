@@ -16,6 +16,9 @@ export class ContactListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getContacts();
+  }
+  getContacts() {
     // const token = window.localStorage.getItem('auth_token');
     // if (!token) {
     //   this.router.navigate(['/signin']);
@@ -30,4 +33,18 @@ export class ContactListComponent implements OnInit {
     });
   }
 
+  deleteContactById(id, e) {
+    e.preventDefault();
+    if (!window.confirm('确定删除吗?')) {
+      return;
+    }
+    this.http.delete(`http://106.15.206.216:3000/contacts/${id}`)
+    .toPromise()
+    .then(data => {
+      this.getContacts();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 }
